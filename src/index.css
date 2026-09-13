@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    background-color: #09090b;
+    background-image: 
+      linear-gradient(to bottom, rgba(9, 9, 11, 0.78), rgba(9, 9, 11, 0.92)),
+      url('/farm_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #f4f4f5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  /* Apple-grade frosted glass surfaces with high contrast for mobile */
+  .glass-panel {
+    background: rgba(18, 18, 22, 0.72);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+  }
+
+  .glass-card-interactive {
+    background: rgba(24, 24, 29, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card-interactive:active {
+    transform: scale(0.98);
+    background: rgba(30, 30, 38, 0.8);
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+
+  .glass-dock {
+    background: rgba(15, 15, 20, 0.88);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8);
+  }
+
+  .emerald-glow {
+    box-shadow: 0 0 25px -4px rgba(16, 185, 129, 0.4);
+  }
+
+  .amber-glow {
+    box-shadow: 0 0 25px -4px rgba(245, 158, 11, 0.4);
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+  }
+}
+
+/* Audio Wave visualizer bar animations */
+.wave-bar {
+  animation: waveBar 1.2s ease-in-out infinite;
+}
+
+@keyframes waveBar {
+  0%, 100% {
+    height: 6px;
+  }
+  50% {
+    height: 24px;
+  }
+}
+
+/* Radar pulse animation for satellite sync */
+@keyframes pingSlow {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.radar-ping {
+  animation: pingSlow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
